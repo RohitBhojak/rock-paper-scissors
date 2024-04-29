@@ -61,5 +61,5 @@ function playGame() {
     }
 }
 
-let round, humanScore = 0, computerScore = 0;
+let round, humanScore = "humanScore = " 0, computerScore = "cpmputerScore = " 0;
 playGame();
