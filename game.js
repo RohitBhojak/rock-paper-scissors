@@ -1,27 +1,24 @@
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random()*3);
     switch (computerChoice) {
-        case 0 : return computerChoice = "rock";
-        case 1 : return computerChoice = "paper";
-        case 2 : return computerChoice = "scissors";
+        case 0 : return "rock";
+        case 1 : return "paper";
+        case 2 : return "scissors";
     }
-}
-
-function getHumanChoice() {
-    let humanChoice = prompt("Round : " + round + "\nChoose : Rock, Paper or Scissors").toLowerCase();
-    return humanChoice;
 }
 
 function playRound(humanChoice, computerChoice) {
     LOSE = () => {
-        console.log("You Lose! " + computerChoice + " beats " + humanChoice);
+        score.textContent = "YOU LOSE";
+        score.style.color = "red";
         computerScore++;
     }
     WIN =  () => {
-        console.log("You Win! " + humanChoice + " beats " + computerChoice);
+        score.textContent = "YOU WIN";
+        score.style.color = "green";
         humanScore++;
     }
-    TIE =  () => console.log("Tie!");
+    TIE =  () => score.textContent = "TIE!";;
 
     if (humanChoice == "rock") {
         switch (computerChoice) {
@@ -47,19 +44,13 @@ function playRound(humanChoice, computerChoice) {
                 break;
             case "paper" : WIN();
         }
-    } else {
-        console.log("Invalid Choice!");
     }
 }
 
-function playGame() {
-    for (round = 1 ;round < 6; round ++) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-        console.log("Scores : " + humanScore + " " + computerScore);
-    }
-}
-
-let round, humanScore = 0, computerScore = 0;
-playGame();
+let buttons = document.querySelectorAll("button");
+buttons = Array.from(buttons);
+let computerScore = 0, humanScore = 0;
+score = document.querySelector(".counter");
+buttons.forEach((button) => {
+    button.addEventListener('click', () => playRound(button.id, getComputerChoice()));
+})
