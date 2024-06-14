@@ -3,11 +3,22 @@ body {
     flex-direction: column;
 }
 
-.counter, .buttons {
+.score-board, .buttons, .heading {
     margin-top: 80px;
+    display: flex;
+    justify-content: center;
 }
 
-.counter {
+.score-board {
+    gap: 80px;
+}
+
+.heading {
+    gap: 390px;
+    margin-bottom: -80px;
+}
+
+.counter, .userScore, .cpuScore, .active {
     display: flex;
     height: 100px;
     width: 200px;
@@ -21,9 +32,18 @@ body {
     font-weight: 700;
 }
 
+.active {
+    color: white;
+    width: 300px;
+    margin: 80px;
+}
+
+.userScore, .cpuScore {
+    height: 100px;
+    width: 100px;
+}
+
 .buttons {
-    display: flex;
-    justify-content: center;
     align-items: center;
     height: 80px;
     gap: 100px;
