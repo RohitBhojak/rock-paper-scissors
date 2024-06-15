@@ -3,7 +3,7 @@ function getComputerChoice() {
     switch (computerChoice) {
         case 0 : return "rock";
         case 1 : return "paper";
-        case 2 : return "scissors";
+        case 2 : return "scissor";
     }
 }
 
@@ -29,19 +29,19 @@ function playRound(humanChoice, computerChoice) {
                 break;
             case "paper" : LOSE();
                 break;
-            case "scissors" : WIN();
+            case "scissor" : WIN();
         }
     } else if (humanChoice == "paper") {
         switch (computerChoice) {
             case "paper" : TIE();
                 break;
-            case "scissors" : LOSE();
+            case "scissor" : LOSE();
                 break;
             case "rock" : WIN();
         }
-    } else if (humanChoice == "scissors") {
+    } else if (humanChoice == "scissor") {
         switch (computerChoice) {
-            case "scissors" : TIE();
+            case "scissor" : TIE();
                 break;
             case "rock" : LOSE();
                 break;
